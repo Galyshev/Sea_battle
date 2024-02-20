@@ -1,0 +1,17 @@
+.container {
+ display: flex;
+}
+
+
+.index_page {
+  margin: 10px;
+  font-family: sans-serif;
+  font-size: 17px;
+
+  text-align: justify;
+}
+
+.index_page h1, .index_page h2 {
+  text-align: center;
+  color: red;
+}
