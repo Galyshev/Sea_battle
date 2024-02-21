@@ -2,11 +2,9 @@
 {% block head %}
 {{ super() }}
 <style type="text/css">
-</style>
+  </style>
 {% endblock %}
 {% block content %}
-<form action="/" method="post">
-    <div class="container">
         <div class="index_page">
             <h1>Вітаю</h1>
             <h2>Це гра під назвою "Морський бій".</h2>
@@ -17,12 +15,10 @@
                 У разі промаху хід переходить до суперника, у разі попадання – дається ще один постріл. Гра триває доти,
                 доки в
                 одного із суперників не будуть уражені всі кораблі.</p>
-
         </div>
-</form>
-</div>
-<div class="container">
+
     <div class="index_btn_group">
+
         <form action="/new" method="post">
             <button class="index_btn" name="btn_new" value="new">Почати нову гру</button>
         </form>
@@ -31,6 +27,4 @@
             <button class="index_btn" name="btn_continue" value="continue">Продовжити останню гру</button>
         </form>
     </div>
-
-
-    {% endblock %}
+{% endblock %}

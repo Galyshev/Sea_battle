@@ -2,7 +2,8 @@
 <html>
 <head>
     {% block head %}
-    <link href="{{ url_for('static', path='/styles.css') }}" rel="stylesheet">
+<!--    для корректного обновления стилей нужно ставить временные метки, типа "styles.css?q=1280549780"-->
+    <link href="{{ url_for('static', path='/styles.css?q=1280549780') }}" rel="stylesheet">
     <title>{{ title }}</title>
     {% endblock %}
 </head>

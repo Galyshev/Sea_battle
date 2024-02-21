@@ -17,10 +17,10 @@ templates = Jinja2Templates(directory="templates")
 # app.include_router(router_trailers)
 
 
-
 @app.get('/')
 async def index(request: Request):
     return templates.TemplateResponse('index.html', {"request": request})
+
 @app.post('/new')
 async def start_new(request: Request, btn_new=Form()):
     # response = RedirectResponse(url='!!!!')
@@ -36,4 +36,4 @@ async def start_continue(request: Request, btn_continue=Form()):
 
 
 if __name__ == "__main__":
-    uvicorn.run("main:app", port=5000, log_level="info", reload=True)
+    uvicorn.run("main:app", port=5000, log_level="info", reload=False)

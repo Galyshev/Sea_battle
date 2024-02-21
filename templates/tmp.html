@@ -1,9 +1,12 @@
 {% extends "base.html" %}
 {% block head %}
-{{ super() }}
-<style type="text/css">
-</style>
+
+<link href="{{ url_for('static', path='/styles.css') }}" rel="stylesheet">
 {% endblock %}
 {% block content %}
+
 {{ rez }}
 {% endblock %}
+
+
+
