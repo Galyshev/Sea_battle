@@ -1,0 +1,22 @@
+# TODO при создании контейнера файл выложить в корневой каталог
+version: "3.9"
+services:
+  web:
+    build: .
+    ports:
+      - "8006:5000"
+    volumes:
+      - .:/sea_battle
+    environment:
+      - DB_HOST=psgrs_cont_sea_battle
+      - DB_USER=postgres
+      - DB_PASSWORD=postgres
+
+  db:
+    image: postgres:14.1-alpine
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - "5432:5432"
+    hostname: psgrs_cont_sea_battle

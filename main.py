@@ -4,7 +4,7 @@ from fastapi.staticfiles import StaticFiles
 from fastapi import Request
 from starlette.templating import Jinja2Templates
 from starlette.responses import RedirectResponse
-# from pages.router import router as router_pages
+from new_game import router as router_new
 
 
 app = FastAPI(
@@ -14,7 +14,7 @@ app = FastAPI(
 app.mount("/static", StaticFiles(directory="static"), name='static')
 
 templates = Jinja2Templates(directory="templates")
-# app.include_router(router_trailers)
+app.include_router(router_new)
 
 
 @app.get('/')
@@ -22,11 +22,10 @@ async def index(request: Request):
     return templates.TemplateResponse('index.html', {"request": request})
 
 @app.post('/new')
-async def start_new(request: Request, btn_new=Form()):
-    # response = RedirectResponse(url='!!!!')
-    # return response
-    rez = btn_new
-    return templates.TemplateResponse('tmp.html', {"request": request, "rez": rez})
+async def start_new(request: Request):
+    response = RedirectResponse(url='/new/')
+    return response
+
 @app.post('/continue')
 async def start_continue(request: Request, btn_continue=Form()):
     # response = RedirectResponse(url='!!!!')

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block head %}
+{{ super() }}
+<style type="text/css">
+  </style>
+{% endblock %}
+{% block content %}
+        <div class="new_gam_start">
+            <h1>Вітаю</h1>
+
+        </div>
+<form action="/new/generate" method="post">
+    <div class="player_btn_group">
+
+            <button class="{{ play_btn_class }}" name="player_btn" value="p_a1"></button>
+
+
+    </div>
+ </form>
+{% endblock %}
