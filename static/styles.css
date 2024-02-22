@@ -28,7 +28,18 @@ height: 50px;
 
 .player_btn_group {
 text-align: center;
+width: 540px;
+height: 540px;
+margin: 50px;
 }
+
+.comp_btn_group {
+text-align: center;
+width: 540px;
+height: 540px;
+margin: 1000 0 0 0px;
+}
+
 .play_btn_red {
 width: 50px;
 height: 50px;

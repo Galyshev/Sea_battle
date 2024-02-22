@@ -12,9 +12,12 @@
 <form action="/new/generate" method="post">
     <div class="player_btn_group">
 
-            <button class="{{ play_btn_class }}" name="player_btn" value="p_a1"></button>
+            {% for k in rez_pl %}
+            <button class="{{ k.field_class}}" name="player_btn" value="{{ k.vert_index }}-{{ k.horiz_index }}"></button>
 
-
+        {% endfor %}
     </div>
+
+
  </form>
 {% endblock %}
