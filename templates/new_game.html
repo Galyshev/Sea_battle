@@ -2,22 +2,41 @@
 {% block head %}
 {{ super() }}
 <style type="text/css">
-  </style>
+</style>
 {% endblock %}
 {% block content %}
-        <div class="new_gam_start">
-            <h1>Вітаю</h1>
+
+<form action="/new/placement_of_ships" method="post">
+    <div class="wrapper">
+        <div class="player_btn_block">
+            <div class="player_btn_group">
+                {% for k in rez_pl %}
+                <button class="{{ k.field_class}}" name="player_btn"
+                        value="{{ k.vert_index }}-{{ k.horiz_index }}"></button>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="player_btn_block">
+            <p> Потрібно розмістити кораблі на полі. Натискайте на корабель, а потім на клітки на полі. Кількість клітин
+                має збігатися з кількістю палуб корбаля (цифри а кораблі) Кораблі НЕ МОЖУТЬ стояти впритул один до
+                одного. Між кораблями має бути відстань щонайменше в одну клітку</p>
+            {% for sh in rez_ship %}
+
+            {% if sh.flag=="activ" %}
+            <button class="{{ sh.ship_class}}" name="{{ sh.id_ship}}"
+                    value="{{ sh.id_ship}}"> {{ sh.ship_rang}}
+            </button>
+
+            {% else %}
+            <button class="{{ sh.ship_class}}" name="{{ sh.id_ship}}"
+                    value="{{ sh.id_ship}}" disabled> {{ sh.ship_rang}}
+            </button>
+            {% endif %}
+            {% endfor %}
+
+
 
         </div>
-<form action="/new/generate" method="post">
-    <div class="player_btn_group">
-
-            {% for k in rez_pl %}
-            <button class="{{ k.field_class}}" name="player_btn" value="{{ k.vert_index }}-{{ k.horiz_index }}"></button>
-
-        {% endfor %}
     </div>
-
-
- </form>
+</form>
 {% endblock %}

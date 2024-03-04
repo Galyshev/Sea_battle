@@ -1,4 +1,4 @@
-
+                                        /* БЛОК НАЧАЛА ИГРЫ */
 .index_page {
   margin: 20px;
   font-family: sans-serif;
@@ -30,18 +30,54 @@ height: 50px;
 text-align: center;
 width: 540px;
 height: 540px;
-margin: 50px;
+
+}
+.player_btn_block {
+  display: inline-block;
+  margin: 50px;
 }
 
-.comp_btn_group {
-text-align: center;
-width: 540px;
-height: 540px;
-margin: 1000 0 0 0px;
+.wrapper {
+  display: flex;
 }
 
 .play_btn_red {
 width: 50px;
 height: 50px;
 background: red;
+}
+                                            /* БЛОК КОРАБЛЕЙ */
+.sh_4 {
+width: 200px;
+height: 50px;
+border: 1px solid blue;
+margin: 10px;
+border-radius: 10px;
+}
+.sh_3 {
+width: 150px;
+height: 50px;
+border: 1px solid blue;
+margin: 10px;
+border-radius: 10px;
+}
+.sh_2 {
+width: 100px;
+height: 50px;
+border: 1px solid blue;
+margin: 10px;
+border-radius: 10px;
+}
+.sh_1 {
+width: 50px;
+height: 50px;
+border: 1px solid blue;
+margin: 10px;
+border-radius: 10px;
+}
+.selected {
+background: green;
+}
+.error {
+color: red;
 }

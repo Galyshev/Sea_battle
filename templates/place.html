@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block head %}
+{{ super() }}
+<style type="text/css">
+</style>
+{% endblock %}
+{% block content %}
+
+<form action="/new/placement_detail" method="post">
+    <div class="wrapper">
+        <div class="player_btn_block">
+            <div class="player_btn_group">
+
+                {% if status == 'new'%}
+                    {% for k in rez_pl %}
+                    <button class="{{ k.field_class}}" name="player_btn"
+                     value="{{ k.vert_index }}-{{ k.horiz_index }} , {{ id }}"></button>
+                    {% endfor %}
+                {% else %}
+                    {% for k in rez_pl %}
+                        {% for l in rez_chk_koor %}
+                            {% if k.vert_index == l.a_y and k.horiz_index == l.a_x %}
+                             <button class="play_btn_red" name="player_btn"
+                             value="{{ k.vert_index }}-{{ k.horiz_index }} , {{ id }}" disabled></button>
+                            {% elif k.vert_index == l.b_y and k.horiz_index == l.b_x %}
+                             <button class="play_btn_red" name="player_btn"
+                             value="{{ k.vert_index }}-{{ k.horiz_index }} , {{ id }}" disabled></button>
+                            {% elif k.vert_index == l.c_y and k.horiz_index == l.c_x %}
+                             <button class="play_btn_red" name="player_btn"
+                             value="{{ k.vert_index }}-{{ k.horiz_index }} , {{ id }}" disabled></button>
+                            {% elif k.vert_index == l.d_y and k.horiz_index == l.d_x %}
+                             <button class="play_btn_red" name="player_btn"
+                             value="{{ k.vert_index }}-{{ k.horiz_index }} , {{ id }}" disabled></button>
+                            {% else %}
+                            <button class="{{ k.field_class}}" name="player_btn"
+                            value="{{ k.vert_index }}-{{ k.horiz_index }} , {{ id }}"></button>
+                            {% endif %}
+                        {% endfor %}
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+        <div class="player_btn_block">
+            <p> Потрібно розмістити кораблі на полі. Натискайте на корабель, а потім на клітки на полі. Кількість клітин
+                має збігатися з кількістю палуб корбаля (цифри а кораблі) Кораблі НЕ МОЖУТЬ стояти впритул один до
+                одного. Між кораблями має бути відстань щонайменше в одну клітку</p>
+
+            <button class="{{ sh_class}} selected" name="{{ sh_class }}"
+                    value="{{ id }}" disabled> {{ ship_rang}}
+            </button>
+            <h2 class="error">{{ error }} </h2>
+
+
+
+
+        </div>
+    </div>
+</form>
+{% endblock %}
